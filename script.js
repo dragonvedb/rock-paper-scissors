@@ -46,12 +46,14 @@ function playRound(computerChoice, playerChoice) {
 function game() {
     for (let i = 1; i <= 1; i++) {
         const computerChoice = getComputerChoice();
+        // take player input and capitalize the first letter
         const playerChoice = function() {
             let input = prompt("What do you pick?").toLowerCase();
             let firstChar = input.charAt(0);
             return firstChar.toUpperCase() + input.substring(1);
         };
-        alert(playerChoice());
+        
+        alert(playRound(computerChoice, playerChoice()) );
     }
 }
 
