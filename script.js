@@ -18,7 +18,7 @@ function getComputerChoice() {
 
 // THIS IS A SINGLE GAME ROUND.
 // TAKE PLAYER'S AND COMP'S CHOICES AND RETURN WIN\LOSE\TIE MEASSAGE.
-function playRound(computerChoice, playerChoice) {
+function playRound(computerChoice, computerChoiceShort, playerChoice) {
     
     // generate win and lose messages and increemnt score counter
     let winMsg = function() {
@@ -34,6 +34,7 @@ function playRound(computerChoice, playerChoice) {
     // this switch returns and win/lose message or a tie message in case the choices are the same
     switch(playerChoice) {
         case computerChoice:
+        case computerChoiceShort:
             return `It's a tie! You both played ${computerChoice}.`;
 
         case 'Rock':
@@ -59,6 +60,8 @@ function playRound(computerChoice, playerChoice) {
 function game() {
     for (let i = 1; i <= 1; i++) {
         const computerChoice = getComputerChoice();
+        //this is to enable shortened inputs
+        const computerChoiceShort = computerChoice.charAt(0);
         // take player input and capitalize the first letter
         const playerChoice = function() {
             let input = prompt("What do you pick?").toLowerCase();
@@ -66,7 +69,7 @@ function game() {
             return firstChar.toUpperCase() + input.substring(1);
         };
         
-        alert( playRound(computerChoice, playerChoice()) + '\n' + `Current score is ${playerScore} : ${computerScore}`);
+        alert( playRound(computerChoice, computerChoiceShort, playerChoice()) + '\n' + `Current score is ${playerScore} : ${computerScore}`);
     }
 
     if (playerScore > computerScore) {
