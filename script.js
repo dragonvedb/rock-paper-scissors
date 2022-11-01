@@ -37,12 +37,18 @@ function playRound(computerChoice, playerChoice) {
             return `It's a tie! You both played ${computerChoice}.`;
 
         case 'Rock':
+        case 'R':
+             playerChoice = 'Rock';
              return (computerChoice === 'Scissors') ? winMsg() : loseMsg();
 
         case 'Paper':
+        case 'P':
+            playerChoice = 'Paper';
             return (computerChoice === 'Rock') ? winMsg() : loseMsg();
 
         case 'Scissors':
+        case 'S':
+            playerChoice = 'Scissors';
             return (computerChoice === 'Paper') ? winMsg() : loseMsg();
     }
 }
