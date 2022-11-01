@@ -36,10 +36,10 @@ function playRound(computerChoice, playerChoice) {
 }
 
 function game() {
-    for (let i = 1; i <= 5; i++) {
+    for (let i = 1; i <= 1; i++) {
         const computerChoice = getComputerChoice();
         const playerChoice = function() {
-            prompt("What do you pick?");
+            return prompt("What do you pick?");
         };
         alert(playerChoice());
     }
