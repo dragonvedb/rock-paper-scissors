@@ -62,6 +62,14 @@ function game() {
         
         alert( playRound(computerChoice, playerChoice()) + '\n' + `Current score is ${playerScore} : ${computerScore}`);
     }
+
+    if (playerScore > computerScore) {
+        alert( `You have won the game with a ${playerScore - computerScore}-point lead!` + '\n' + `The final score is ${playerScore} : ${computerScore}`)
+    } else if (computerScore > playerScore) {
+        alert( `Unfortunately, you have lost the game by a ${computerScore - playerScore}-point margin` + '\n' + `The final score is ${playerScore} : ${computerScore}`)
+    } else {
+        alert(`The game is tied with a ${playerScore} : ${computerScore} score.` + '\n' + `I guess you'll have play again to settle this!`)
+    }
 }
 
 
