@@ -1,4 +1,4 @@
- function getComputerChoice() {
+function getComputerChoice() {
     let computerChoice = Math.floor(Math.random() * 3);
     
     switch(computerChoice) {
@@ -14,28 +14,32 @@
     }
 
     return computerChoice;
-    }
+}
 
-    function playRound(computerChoice, playerChoice) {
-        let winMsg = `You won! ${playerChoice} beats ${computerChoice}.`
-        let loseMsg = `You lost. ${computerChoice} beats ${playerChoice}.`
+function playRound(computerChoice, playerChoice) {
+    let winMsg = `You won! ${playerChoice} beats ${computerChoice}.`
+    let loseMsg = `You lost. ${computerChoice} beats ${playerChoice}.`
         
-        switch(playerChoice) {
-            case computerChoice:
-                return `It's a tie! You both played ${computerChoice}.`;
+    switch(playerChoice) {
+        case computerChoice:
+            return `It's a tie! You both played ${computerChoice}.`;
 
-            case 'Rock':
-                return (computerChoice === 'Scissors') ? winMsg : loseMsg;
+        case 'Rock':
+             return (computerChoice === 'Scissors') ? winMsg : loseMsg;
 
-            case 'Paper':
-                return (computerChoice === 'Rock') ? winMsg : loseMsg;
+        case 'Paper':
+            return (computerChoice === 'Rock') ? winMsg : loseMsg;
 
-            case 'Scissors':
-                return (computerChoice === 'Paper') ? winMsg : loseMsg;
-        }
+        case 'Scissors':
+            return (computerChoice === 'Paper') ? winMsg : loseMsg;
+    }
+}
+
+function game() {
+    for (let i = 1; i <= 5; i++) {
+        const computerChoice = getComputerChoice();
+        const playerChoice = prompt("What do you pick?");
+        };
     }
 
-    const computerChoice = getComputerChoice();
-    const playerChoice = 'Rock';
-    console.log(computerChoice)
-    //console.log(playRound(computerChoice, playerChoice))
+game();
