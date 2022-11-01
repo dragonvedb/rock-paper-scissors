@@ -20,9 +20,16 @@ function getComputerChoice() {
 // TAKE PLAYER'S AND COMP'S CHOICES AND RETURN WIN\LOSE\TIE MEASSAGE.
 function playRound(computerChoice, playerChoice) {
     
-    // pregenerate win and lose messages
-    let winMsg = `You won! ${playerChoice} beats ${computerChoice}.`
-    let loseMsg = `You lost. ${computerChoice} beats ${playerChoice}.`
+    // generate win and lose messages and increemnt score counter
+    let winMsg = function() {
+        playerScore++;
+        return `You won! ${playerChoice} beats ${computerChoice}.`
+    };
+
+    let loseMsg = function(){
+        computerScore++;
+        return `You lost. ${computerChoice} beats ${playerChoice}.`
+    };
         
     // this switch returns and win/lose message or a tie message in case the choices are the same
     switch(playerChoice) {
@@ -30,13 +37,13 @@ function playRound(computerChoice, playerChoice) {
             return `It's a tie! You both played ${computerChoice}.`;
 
         case 'Rock':
-             return (computerChoice === 'Scissors') ? winMsg : loseMsg;
+             return (computerChoice === 'Scissors') ? winMsg() : loseMsg();
 
         case 'Paper':
-            return (computerChoice === 'Rock') ? winMsg : loseMsg;
+            return (computerChoice === 'Rock') ? winMsg() : loseMsg();
 
         case 'Scissors':
-            return (computerChoice === 'Paper') ? winMsg : loseMsg;
+            return (computerChoice === 'Paper') ? winMsg() : loseMsg();
     }
 }
 
@@ -53,7 +60,7 @@ function game() {
             return firstChar.toUpperCase() + input.substring(1);
         };
         
-        alert( playRound(computerChoice, playerChoice()) + '\n' + `Current score is ${playerScore} : ${computerScore}.`);
+        alert( playRound(computerChoice, playerChoice()) + '\n' + `Current score is ${playerScore} : ${computerScore}`);
     }
 }
 
