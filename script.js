@@ -53,8 +53,12 @@ function game() {
             return firstChar.toUpperCase() + input.substring(1);
         };
         
-        alert(playRound(computerChoice, playerChoice()) );
+        alert( playRound(computerChoice, playerChoice()) + '\n' + `Current score is ${playerScore} : ${computerScore}.`);
     }
 }
+
+
+let playerScore = 0;
+let computerScore = 0;
 
 game();
