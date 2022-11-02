@@ -23,12 +23,12 @@ function playRound(computerChoice, computerChoiceShort, playerChoice) {
     // generate win and lose messages and increemnt score counter
     let winMsg = function() {
         playerScore++;
-        return `🖒 You won! ${playerChoice} beats ${computerChoice}.`
+        return `👍 You won! ${playerChoice} beats ${computerChoice}.`
     };
 
     let loseMsg = function(){
         computerScore++;
-        return `🖓 You lost. ${computerChoice} beats ${playerChoice}.`
+        return `👎 You lost. ${computerChoice} beats ${playerChoice}.`
     };
         
     // this switch returns and win/lose message or a tie message in case the choices are the same
@@ -79,7 +79,7 @@ function game() {
         switch (playerInput) {
         case null:
         case '':
-            alert("⨯ You can't play if you don't input anything!");
+            alert("❌ You can't play if you don't input anything!");
             i--;
             continue;
         
@@ -95,7 +95,7 @@ function game() {
                     alert( playRound(computerChoice, computerChoiceShort, playerChoice()) + '\n' + `Current score is ${playerScore} : ${computerScore}` + '\n\n' + `${5 - i} rounds remaining.`);
                     break;
                 default:
-                    alert("⨯ You can't play that! Please input something else.");
+                    alert("❌ You can't play that! Please input something else.");
                     i--;
                     continue;
                 }
