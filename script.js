@@ -63,12 +63,18 @@ function game() {
         //this is to enable shortened inputs
         const computerChoiceShort = computerChoice.charAt(0);
         // take player input and capitalize the first letter
-        const playerChoice = function() {
-            let input = prompt("What do you pick?").toLowerCase();
-            let firstChar = input.charAt(0);
-            return firstChar.toUpperCase() + input.substring(1);
-        };
+        const playerInput = prompt("What do you pick?");
+
+        if (playerInput === null) {
+            alert("You can't play if you don't input anything!");
+            continue;
+        }
         
+        const playerChoice = function() {
+            let firstChar = playerInput.charAt(0);
+            return firstChar.toUpperCase() + playerInput.substring(1);
+        };
+
         alert( playRound(computerChoice, computerChoiceShort, playerChoice()) + '\n' + `Current score is ${playerScore} : ${computerScore}`);
     }
 
