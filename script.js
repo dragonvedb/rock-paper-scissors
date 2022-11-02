@@ -72,7 +72,7 @@ function game() {
         
         const playerChoice = function() {
             let firstChar = playerInput.charAt(0);
-            return firstChar.toUpperCase() + playerInput.substring(1);
+            return firstChar.toUpperCase() + playerInput.substring(1).toLowerCase();
         };
 
         alert( playRound(computerChoice, computerChoiceShort, playerChoice()) + '\n' + `Current score is ${playerScore} : ${computerScore}`);
