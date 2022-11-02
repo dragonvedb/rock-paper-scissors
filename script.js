@@ -69,25 +69,29 @@ function game() {
             return firstChar.toUpperCase() + playerInput.substring(1).toLowerCase();
         };
 
-       switch (String(playerInput).toLowerCase()) {
-            case 'null':
-            case '':
-                alert("You can't play if you don't input anything!");
-                i--;
-                continue;
-            case 'rock' || 'slime':
-            case 'r':
-            case 'paper':
-            case 'p':
-            case 'scissors':
-            case 's':
-                alert( playRound(computerChoice, computerChoiceShort, playerChoice()) + '\n' + `Current score is ${playerScore} : ${computerScore}` + '\n\n' + `${5 - i} rounds remaining.`);
-                break;
-            default:
-                alert("You can't play that! Please input something else.");
-                i--;
-                continue;
-            }
+    switch (playerInput) {
+        case null:
+        case '':
+            alert("You can't play if you don't input anything!");
+            i--;
+            continue;
+        
+        default:
+            switch (playerInput.toLowerCase()) {
+                case 'rock' || 'slime':
+                case 'r':
+                case 'paper':
+                case 'p':
+                case 'scissors':
+                case 's':
+                    alert( playRound(computerChoice, computerChoiceShort, playerChoice()) + '\n' + `Current score is ${playerScore} : ${computerScore}` + '\n\n' + `${5 - i} rounds remaining.`);
+                    break;
+                default:
+                    alert("You can't play that! Please input something else.");
+                    i--;
+                    continue;
+                }
+        }
         }
 
     if (playerScore > computerScore) {
