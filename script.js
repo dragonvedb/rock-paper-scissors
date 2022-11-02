@@ -81,7 +81,7 @@ function game() {
             case 'p':
             case 'scissors':
             case 's':
-                alert( playRound(computerChoice, computerChoiceShort, playerChoice()) + '\n' + `Current score is ${playerScore} : ${computerScore}`);
+                alert( playRound(computerChoice, computerChoiceShort, playerChoice()) + '\n' + `Current score is ${playerScore} : ${computerScore}` + '\n\n' + `${5 - i} rounds remaining.`);
                 break;
             default:
                 alert("You can't play that! Please input something else.");
