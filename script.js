@@ -32,12 +32,15 @@ function playRound(computerChoice, computerChoiceShort, playerChoice) {
     };
 
     switch(playerChoice) {
-        case ✊:
+        case '✊':
             playerChoice = 'Rock';
-        case 🤚:
+            break;
+        case '🤚':
             playerChoice = 'Paper';
-        case ✌️:
+            break;
+        case '✌️':
             playerChoice = 'Scissors';
+            break;
     }
         
     // this switch returns and win/lose message or a tie message in case the choices are the same
@@ -95,13 +98,15 @@ function game() {
         default:
             // check if input is valid. Start the round if it is, show the message if it's not
             switch (playerInput.toLowerCase()) {
-                case 'rock' || 'slime':
+                case 'rock':
                 case 'r':
+                case '✊':
                 case 'paper':
                 case 'p':
+                case '🤚':
                 case 'scissors':
                 case 's':
-                case '✊':
+                case '✌️':
                     alert( playRound(computerChoice, computerChoiceShort, playerChoice()) + '\n' + `Current score is ${playerScore} : ${computerScore}` + '\n\n' + `${5 - i} rounds remaining.`);
                     break;
                 default:
