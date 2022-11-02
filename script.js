@@ -58,6 +58,11 @@ function playRound(computerChoice, computerChoiceShort, playerChoice) {
 // EVERY ROUND IT GENERATES A COMPUTER CHOICE AND ASKS THE PLAYER FOR ONE.
 // THEN IT PLAYS A ROUND AND ADJUST THE SCORE. AFTER FIVE ROUNDS DECLARES A WINNER.
 function game() {
+
+    alert("You are about to play a game of Rock-Paper-Scissors against the computer." + '\n\n' + "The game is going to consist of five rounds.")
+
+    alert("Each round you are going to input either 'Rock', 'Paper' or 'Scissors'" + '\n' + "(You can also use shorthands 'r', 'p' and 's')" + '\n\n' + "Then your input will be compared against the computer's and the winner of the round declared!")
+    
     for (let i = 1; i <= 5; i++) {
         const computerChoice = getComputerChoice();
         // this is to enable shortened inputs
