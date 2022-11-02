@@ -69,7 +69,9 @@ function game() {
             return firstChar.toUpperCase() + playerInput.substring(1).toLowerCase();
         };
 
-    switch (playerInput) {
+        // checks what the player did with the prompt
+        // if the prompt window was cancelled or nothing was input, show the "no input" message
+        switch (playerInput) {
         case null:
         case '':
             alert("You can't play if you don't input anything!");
@@ -77,6 +79,7 @@ function game() {
             continue;
         
         default:
+            // check if input is valid. Start the round if it is, show the message if it's not
             switch (playerInput.toLowerCase()) {
                 case 'rock' || 'slime':
                 case 'r':
