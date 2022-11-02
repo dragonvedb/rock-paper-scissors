@@ -61,7 +61,7 @@ function game() {
 
     alert("You are about to play a game of Rock-Paper-Scissors against the computer." + '\n\n' + "The game is going to consist of five rounds.")
 
-    alert("Each round you are going to input either 'Rock', 'Paper' or 'Scissors'" + '\n' + "(You can also use shorthands 'r', 'p' and 's')" + '\n\n' + "Then your input will be compared against the computer's and the winner of the round declared!")
+    alert("Each round you are going to input either 'Rock', 'Paper' or 'Scissors'." + '\n' + "(You can also use shorthands 'r', 'p' and 's')" + '\n\n' + "Then your input will be compared against the computer's and the winner of the round declared!")
     
     for (let i = 1; i <= 5; i++) {
         const computerChoice = getComputerChoice();
@@ -105,7 +105,7 @@ function game() {
     if (playerScore > computerScore) {
         alert( `🎉 You have won the game with a ${playerScore - computerScore}-point lead!` + '\n' + `The final score is ${playerScore} : ${computerScore}`)
     } else if (computerScore > playerScore) {
-        alert( `💀 Unfortunately, you have lost the game by a ${computerScore - playerScore}-point margin` + '\n' + `The final score is ${playerScore} : ${computerScore}`)
+        alert( `💀 Unfortunately, you have lost the game by a ${computerScore - playerScore}-point margin.` + '\n' + `The final score is ${playerScore} : ${computerScore}`)
     } else {
         alert(`The game is tied with a ${playerScore} : ${computerScore} score.` + '\n' + `I guess you'll have play again to settle this!`)
     }
