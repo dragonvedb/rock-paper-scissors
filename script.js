@@ -58,25 +58,37 @@ function playRound(computerChoice, computerChoiceShort, playerChoice) {
 // EVERY ROUND IT GENERATES A COMPUTER CHOICE AND ASKS THE PLAYER FOR ONE.
 // THEN IT PLAYS A ROUND AND ADJUST THE SCORE. AFTER FIVE ROUNDS DECLARES A WINNER.
 function game() {
-    for (let i = 1; i <= 1; i++) {
+    for (let i = 1; i <= 5; i++) {
         const computerChoice = getComputerChoice();
-        //this is to enable shortened inputs
+        // this is to enable shortened inputs
         const computerChoiceShort = computerChoice.charAt(0);
-        // take player input and capitalize the first letter
         const playerInput = prompt("What do you pick?");
-
-        if (playerInput === null) {
-            alert("You can't play if you don't input anything!");
-            continue;
-        }
-        
+        // take player input and capitalize the first letter
         const playerChoice = function() {
             let firstChar = playerInput.charAt(0);
             return firstChar.toUpperCase() + playerInput.substring(1).toLowerCase();
         };
 
-        alert( playRound(computerChoice, computerChoiceShort, playerChoice()) + '\n' + `Current score is ${playerScore} : ${computerScore}`);
-    }
+       switch (String(playerInput).toLowerCase()) {
+            case 'null':
+            case '':
+                alert("You can't play if you don't input anything!");
+                i--;
+                continue;
+            case 'rock' || 'slime':
+            case 'r':
+            case 'paper':
+            case 'p':
+            case 'scissors':
+            case 's':
+                alert( playRound(computerChoice, computerChoiceShort, playerChoice()) + '\n' + `Current score is ${playerScore} : ${computerScore}`);
+                break;
+            default:
+                alert("You can't play that! Please input something else.");
+                i--;
+                continue;
+            }
+        }
 
     if (playerScore > computerScore) {
         alert( `You have won the game with a ${playerScore - computerScore}-point lead!` + '\n' + `The final score is ${playerScore} : ${computerScore}`)
