@@ -11,3 +11,8 @@ Overall wasn't very challenging, though I had to rewrite certain parts several t
 One interesting bug was being able to trigger "no input" message by typing in 'null' due to the way I coded it (converting input to string before checking validity, because otherwise it broke 'toLowerCase').
 At the last moment implemented emoji input support. It's fun on mobile.
 Where to next?
+
+25th of November:
+
+Here we go again! This time around we're adding the UI elements which is going to be a huge relief, cause the endless alerts are honesly super annoying and also buggy. Don't yet know how I'm going to style the site; I had an idea of theming it around Undertale (Omega Flowey battle?..) but it may be to much hassle to be honest. We'll see.
+God, there's so much to rework...
