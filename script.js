@@ -17,10 +17,10 @@ function getComputerChoice() {
 }
 
 // THIS IS A SINGLE GAME ROUND.
-// TAKE PLAYER'S AND COMP'S CHOICES AND RETURN WIN\LOSE\TIE MEASSAGE.
+// TAKE PLAYER'S AND COMP'S CHOICES AND RETURN WIN\LOSE\TIE MESSAGE.
 function playRound(computerChoice, computerChoiceShort, playerChoice) {
     
-    // generate win and lose messages and increemnt score counter
+    // generate win and lose messages and increment score counter
     let winMsg = function() {
         playerScore++;
         return `👍 You won! ${playerChoice} beats ${computerChoice}.`
@@ -69,7 +69,7 @@ function playRound(computerChoice, computerChoiceShort, playerChoice) {
 // THIS CONTAINS AN ENTIRE GAME SESSION CONSISTING OF FIVE ROUNDS.
 // EVERY ROUND IT GENERATES A COMPUTER CHOICE AND ASKS THE PLAYER FOR ONE.
 // THEN IT PLAYS A ROUND AND ADJUST THE SCORE. AFTER FIVE ROUNDS DECLARES A WINNER.
-function game() {
+/*function game() {
 
     alert("You are about to play a game of Rock-Paper-Scissors against the computer." + '\n\n' + "The game is going to consist of five rounds.")
 
@@ -130,4 +130,4 @@ function game() {
 let playerScore = 0;
 let computerScore = 0;
 
-game();
+game();*/
