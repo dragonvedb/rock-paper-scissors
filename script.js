@@ -1,3 +1,10 @@
+const buttons = document.querySelectorAll('.choice-btn');
+buttons.forEach(button => {
+    button.addEventListener('click', (e) => {
+        alert(playRound('Rock', 'R', e.target.id));
+    });
+});
+
 function getComputerChoice() {
     let computerChoice = Math.floor(Math.random() * 3);
     
@@ -22,7 +29,7 @@ function playRound(computerChoice, computerChoiceShort, playerChoice) {
     
     // generate win and lose messages and increment score counter
     let winMsg = function() {
-        playerScore++;
+        //playerScore++;
         return `👍 You won! ${playerChoice} beats ${computerChoice}.`
     };
 
@@ -66,6 +73,7 @@ function playRound(computerChoice, computerChoiceShort, playerChoice) {
     }
 }
 
+
 // THIS CONTAINS AN ENTIRE GAME SESSION CONSISTING OF FIVE ROUNDS.
 // EVERY ROUND IT GENERATES A COMPUTER CHOICE AND ASKS THE PLAYER FOR ONE.
 // THEN IT PLAYS A ROUND AND ADJUST THE SCORE. AFTER FIVE ROUNDS DECLARES A WINNER.
@@ -75,7 +83,7 @@ function playRound(computerChoice, computerChoiceShort, playerChoice) {
 
     alert("Each round you are going to input either 'Rock', 'Paper' or 'Scissors'." + '\n' + "(You can also use shorthands 'r', 'p' and 's' or emojis ✊ 🤚 ✌️)" + '\n\n' + "Then your input will be compared against the computer's and the winner of the round declared!")
     
-    for (let i = 1; i <= 5; i++) {
+    for (let i = 1; i > 0; i++) {
         const computerChoice = getComputerChoice();
         // this is to enable shortened inputs
         const computerChoiceShort = computerChoice.charAt(0);
