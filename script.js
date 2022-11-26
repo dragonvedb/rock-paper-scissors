@@ -1,7 +1,7 @@
 const buttons = document.querySelectorAll('.choice-btn');
 buttons.forEach(button => {
     button.addEventListener('click', (e) => {
-        alert(playRound('Rock', 'R', e.target.id));
+        alert(playRound(0, 0, e.target.id));
     });
 });
 
@@ -23,13 +23,20 @@ function getComputerChoice() {
     return computerChoice;
 }
 
+let playerScore = 0;
+let computerScore = 0;
+
 // THIS IS A SINGLE GAME ROUND.
 // TAKE PLAYER'S AND COMP'S CHOICES AND RETURN WIN\LOSE\TIE MESSAGE.
 function playRound(computerChoice, computerChoiceShort, playerChoice) {
+
+    computerChoice = getComputerChoice();
+    // this is to enable shortened inputs
+    computerChoiceShort = computerChoice.charAt(0);
     
     // generate win and lose messages and increment score counter
     let winMsg = function() {
-        //playerScore++;
+        playerScore++;
         return `👍 You won! ${playerChoice} beats ${computerChoice}.`
     };
 
