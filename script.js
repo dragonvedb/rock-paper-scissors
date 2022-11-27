@@ -14,9 +14,9 @@ let computerScore = 0;
 
 function printMsg (msg) {
     for (const line of msg) {
-        const line = document.createElement('p');
-        line.textContent = msg;
-        promptArea.appendChild(line);
+        const para = document.createElement('p');
+        para.textContent = line;
+        promptArea.appendChild(para);
     }
 };
 
