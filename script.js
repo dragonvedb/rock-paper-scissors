@@ -1,7 +1,7 @@
 const buttons = document.querySelectorAll('.choice-btn');
 buttons.forEach(button => {
     button.addEventListener('click', (e) => {
-        printMsg(playRound(e.target.id));
+        playRound(e.target.id);
     });
 });
 
@@ -47,31 +47,41 @@ function playRound(playerChoice) {
     // generate win and lose messages and increment score counter
     let winMsg = function() {
         playerScore++;
+        promptArea.innerHTML = "";
         return [`👍 You won! ${playerChoice} beats ${computerChoice}.`, "What shall you choose next?"]
     };
 
     let loseMsg = function(){
         computerScore++;
+        promptArea.innerHTML = "";
         return [`👎 You lost. ${computerChoice} beats ${playerChoice}.`, "What shall you choose next?"]
     };
 
     // this switch returns and win/lose message or a tie message in case the choices are the same
     switch(playerChoice) {
         case computerChoice:
-            return [`It's a tie! You both played ${computerChoice}.`, "What shall you choose next?"];
+            promptArea.innerHTML = "";
+            printMsg([`It's a tie! You both played ${computerChoice}.`, "What shall you choose next?"]);
+            break;
 
         case 'Rock':
              playerChoice = 'Rock';
-             return (computerChoice === 'Scissors') ? winMsg() : loseMsg();
+             (computerChoice === 'Scissors') ? printMsg(winMsg()) : printMsg(loseMsg());
+             break;
 
         case 'Paper':
             playerChoice = 'Paper';
-            return (computerChoice === 'Rock') ? winMsg() : loseMsg();
+            (computerChoice === 'Rock') ? printMsg(winMsg()) : printMsg(loseMsg());
+            break;
 
         case 'Scissors':
             playerChoice = 'Scissors';
-            return (computerChoice === 'Paper') ? winMsg() : loseMsg();
+            (computerChoice === 'Paper') ? printMsg(winMsg()) : printMsg(loseMsg());
+            break;
     }; 
+
+    playerCounter.textContent = playerScore;
+    computerCounter.textContent = computerScore;
 }
 
 
