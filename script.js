@@ -13,13 +13,17 @@ let roundCounter = 5;
 let playerScore = 0;
 let computerScore = 0;
 
-function printMsg (msg) {
+function printMsg(msg) {
     for (const line of msg) {
         const para = document.createElement('p');
         para.textContent = line;
         promptArea.appendChild(para);
     }
 };
+
+function clearMsg() {
+    promptArea.innerHTML = "";
+}
 
 function getComputerChoice() {
     let computerChoice = Math.floor(Math.random() * 3);
@@ -48,20 +52,20 @@ function playRound(playerChoice) {
     // generate win and lose messages and increment score counter
     let winMsg = function() {
         playerScore++;
-        promptArea.innerHTML = "";
+        clearMsg()
         return [`👍 You won! ${playerChoice} beats ${computerChoice}.`, "What shall you choose next?"]
     };
 
     let loseMsg = function(){
         computerScore++;
-        promptArea.innerHTML = "";
+        clearMsg()
         return [`👎 You lost. ${computerChoice} beats ${playerChoice}.`, "What shall you choose next?"]
     };
 
     // this switch returns and win/lose message or a tie message in case the choices are the same
     switch(playerChoice) {
         case computerChoice:
-            promptArea.innerHTML = "";
+            clearMsg()
             printMsg([`It's a tie! You both played ${computerChoice}.`, "What shall you choose next?"]);
             break;
 
@@ -89,7 +93,7 @@ function playRound(playerChoice) {
 }
 
 function announceWinner() {
-    promptArea.innerHTML = "";
+    clearMsg()
 
     if (playerScore > computerScore) {
         printMsg([`🎉 You have won the game with a ${playerScore - computerScore}-point lead!`, `The final score is ${playerScore} : ${computerScore}`])
