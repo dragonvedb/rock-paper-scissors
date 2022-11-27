@@ -38,15 +38,11 @@ function printMsg (msg) {
     }
 };
 
-printMsg([`👍 You won! ${playerScore} beats ${computerScore}.`])
-
 // THIS IS A SINGLE GAME ROUND.
 // TAKE PLAYER'S AND COMP'S CHOICES AND RETURN WIN\LOSE\TIE MESSAGE.
 function playRound(playerChoice) {
 
     let computerChoice = getComputerChoice();
-    // this is to enable shortened inputs
-    let computerChoiceShort = computerChoice.charAt(0);
     
     // generate win and lose messages and increment score counter
    let winMsg = function() {
@@ -59,36 +55,20 @@ function playRound(playerChoice) {
         return `👎 You lost. ${computerChoice} beats ${playerChoice}.`
     };
 
-    switch(playerChoice) {
-        case '✊':
-            playerChoice = 'Rock';
-            break;
-        case '🤚':
-            playerChoice = 'Paper';
-            break;
-        case '✌️':
-            playerChoice = 'Scissors';
-            break;
-    }
-        
     // this switch returns and win/lose message or a tie message in case the choices are the same
     switch(playerChoice) {
         case computerChoice:
-        case computerChoiceShort:
             return `It's a tie! You both played ${computerChoice}.`;
 
         case 'Rock':
-        case 'R':
              playerChoice = 'Rock';
              return (computerChoice === 'Scissors') ? winMsg() : loseMsg();
 
         case 'Paper':
-        case 'P':
             playerChoice = 'Paper';
             return (computerChoice === 'Rock') ? winMsg() : loseMsg();
 
         case 'Scissors':
-        case 'S':
             playerChoice = 'Scissors';
             return (computerChoice === 'Paper') ? winMsg() : loseMsg();
     }
