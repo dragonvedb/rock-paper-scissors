@@ -1,7 +1,7 @@
 const buttons = document.querySelectorAll('.choice-btn');
 buttons.forEach(button => {
     button.addEventListener('click', (e) => {
-        alert(playRound(e.target.id));
+        printMsg(playRound(e.target.id));
     });
 });
 
@@ -44,10 +44,21 @@ function playRound(playerChoice) {
 
     let computerChoice = getComputerChoice();
 
+    // generate win and lose messages and increment score counter
+    let winMsg = function() {
+        playerScore++;
+        return [`👍 You won! ${playerChoice} beats ${computerChoice}.`, "What shall you choose next?"]
+    };
+
+    let loseMsg = function(){
+        computerScore++;
+        return [`👎 You lost. ${computerChoice} beats ${playerChoice}.`, "What shall you choose next?"]
+    };
+
     // this switch returns and win/lose message or a tie message in case the choices are the same
     switch(playerChoice) {
         case computerChoice:
-            return `It's a tie! You both played ${computerChoice}.`;
+            return [`It's a tie! You both played ${computerChoice}.`, "What shall you choose next?"];
 
         case 'Rock':
              playerChoice = 'Rock';
@@ -60,18 +71,7 @@ function playRound(playerChoice) {
         case 'Scissors':
             playerChoice = 'Scissors';
             return (computerChoice === 'Paper') ? winMsg() : loseMsg();
-    };
-
-        // generate win and lose messages and increment score counter
-    let winMsg = function() {
-        playerScore++;
-        return `👍 You won! ${playerChoice} beats ${computerChoice}.`
-    };
-
-    let loseMsg = function(){
-        computerScore++;
-        return `👎 You lost. ${computerChoice} beats ${playerChoice}.`
-    };
+    }; 
 }
 
 
