@@ -30,7 +30,15 @@ function getComputerChoice() {
 let playerScore = 0;
 let computerScore = 0;
 
+function printMsg (msg) {
+    for (const line of msg) {
+        const line = document.createElement('p');
+        line.textContent = msg;
+        promptArea.appendChild(line);
+    }
+};
 
+printMsg([`👍 You won! ${playerScore} beats ${computerScore}.`])
 
 // THIS IS A SINGLE GAME ROUND.
 // TAKE PLAYER'S AND COMP'S CHOICES AND RETURN WIN\LOSE\TIE MESSAGE.
