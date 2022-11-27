@@ -9,6 +9,17 @@ const promptArea = document.querySelector('#prompt')
 const playerCounter = document.querySelector('#player-counter')
 const computerCounter = document.querySelector('#comp-counter')
 
+let playerScore = 0;
+let computerScore = 0;
+
+function printMsg (msg) {
+    for (const line of msg) {
+        const line = document.createElement('p');
+        line.textContent = msg;
+        promptArea.appendChild(line);
+    }
+};
+
 function getComputerChoice() {
     let computerChoice = Math.floor(Math.random() * 3);
     
@@ -27,33 +38,11 @@ function getComputerChoice() {
     return computerChoice;
 }
 
-let playerScore = 0;
-let computerScore = 0;
-
-function printMsg (msg) {
-    for (const line of msg) {
-        const line = document.createElement('p');
-        line.textContent = msg;
-        promptArea.appendChild(line);
-    }
-};
-
 // THIS IS A SINGLE GAME ROUND.
 // TAKE PLAYER'S AND COMP'S CHOICES AND RETURN WIN\LOSE\TIE MESSAGE.
 function playRound(playerChoice) {
 
     let computerChoice = getComputerChoice();
-    
-    // generate win and lose messages and increment score counter
-   let winMsg = function() {
-        playerScore++;
-        return `👍 You won! ${playerChoice} beats ${computerChoice}.`
-    };
-
-    let loseMsg = function(){
-        computerScore++;
-        return `👎 You lost. ${computerChoice} beats ${playerChoice}.`
-    };
 
     // this switch returns and win/lose message or a tie message in case the choices are the same
     switch(playerChoice) {
@@ -71,7 +60,18 @@ function playRound(playerChoice) {
         case 'Scissors':
             playerChoice = 'Scissors';
             return (computerChoice === 'Paper') ? winMsg() : loseMsg();
-    }
+    };
+
+        // generate win and lose messages and increment score counter
+    let winMsg = function() {
+        playerScore++;
+        return `👍 You won! ${playerChoice} beats ${computerChoice}.`
+    };
+
+    let loseMsg = function(){
+        computerScore++;
+        return `👎 You lost. ${computerChoice} beats ${playerChoice}.`
+    };
 }
 
 
