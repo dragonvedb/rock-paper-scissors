@@ -9,6 +9,7 @@ const promptArea = document.querySelector('#prompt')
 const playerCounter = document.querySelector('#player-counter')
 const computerCounter = document.querySelector('#comp-counter')
 
+let roundCounter = 5;
 let playerScore = 0;
 let computerScore = 0;
 
@@ -82,6 +83,25 @@ function playRound(playerChoice) {
 
     playerCounter.textContent = playerScore;
     computerCounter.textContent = computerScore;
+
+    roundCounter--;
+    if (roundCounter < 1) announceWinner();
+}
+
+function announceWinner() {
+    promptArea.innerHTML = "";
+
+    if (playerScore > computerScore) {
+        printMsg([`🎉 You have won the game with a ${playerScore - computerScore}-point lead!`, `The final score is ${playerScore} : ${computerScore}`])
+    } else if (computerScore > playerScore) {
+        printMsg([`💀 Unfortunately, you have lost the game by a ${computerScore - playerScore}-point margin.`, `The final score is ${playerScore} : ${computerScore}`])
+    } else {
+        printMsg([`The game is tied with a ${playerScore} : ${computerScore} score.`, `I guess you'll have play again to settle this!`])
+    }
+
+    playerScore = 0;
+    computerScore = 0;
+    roundCounter = 5;
 }
 
 
