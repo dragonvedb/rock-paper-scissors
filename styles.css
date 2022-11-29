@@ -1,0 +1,25 @@
+* {
+    margin: 0;
+    padding: 0;
+} 
+
+body {
+    background-color: black;
+    color: whitesmoke;
+
+    text-align: center;
+}
+
+#score {
+    margin: 24px 0px 36px;
+
+}
+
+#counters {
+    font-size: 42px;
+}
+
+button {
+    margin-top: 12px;
+}
+
