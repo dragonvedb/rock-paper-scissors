@@ -19,6 +19,8 @@ body {
     max-width: 800px;
     margin: auto;
     padding-top: 24px;
+
+    text-shadow: lightblue 0 0 10px;
 }
 
 #score {
@@ -27,7 +29,8 @@ body {
 }
 
 #counters {
-    font-size: 42px;
+    font-size: 64px;
+    text-shadow: lightblue 0 0 25px;
 }
 
 button {
