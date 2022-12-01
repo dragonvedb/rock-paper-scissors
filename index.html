@@ -5,13 +5,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Monoton&family=Noto+Emoji&family=Nova+Mono&display=swap" rel="stylesheet">
+    
     <title>Rock Paper Scissors!</title>
 </head>
+
 <body>
     <div id="container">
     <div id="score">
         <p>The current score is</p>
-        <p id="counters"><span id="player-counter">0</span> : <span id="comp-counter">0</span></p>
+        <p id="counters">
+            <span id="player-counter">0</span>
+            <span>:</span>
+            <span id="comp-counter">0</span></p>
     </div>
     
     <div id="prompt">
@@ -20,10 +29,11 @@
         <p>What shall you choose?</p>
     </div>
     
-
-    <button class="choice-btn" id="Rock">ROCK</button>
-    <button class="choice-btn" id="Paper">PAPER</button>
-    <button class="choice-btn" id="Scissors">SCISSORS</button>
+    <div id="choices">
+        <button class="choice-btn" id="Rock">🪨 ROCK</button>
+        <button class="choice-btn" id="Paper">📃 PAPER</button>
+        <button class="choice-btn" id="Scissors">✂️ SCISSORS</button>
+    </div>
     </div>
 
     <script src="script.js"></script>

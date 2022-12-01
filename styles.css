@@ -23,10 +23,11 @@ body {
     top: -25px;
 
     height: 120vh;
-    max-width: 800px;
+    max-width: 850px;
     margin: auto;
-    padding-top: 24px;
+    padding: 24px 20px 0;
 
+    font-family: 'Nova Mono', monospace;
     text-shadow: lightblue 0 0 10px;
     box-shadow: inset lightblue 0 0 200px -100px;
 }
@@ -34,22 +35,36 @@ body {
 #score {
     margin-top: 50px;
     margin-bottom: 36px;
-
 }
 
 #counters {
-    font-size: 64px;
+    font-size: 80px;
+    font-family: 'Monoton', cursive;
     text-shadow: lightblue 0 0 25px;
 }
 
+#choices {
+    margin: 50px auto;
+    display: flex;
+    justify-content: space-between;
+    max-width: 500px;
+}
+
 button {
-    margin-top: 18px;
-    padding: 10px;
+    width: 150px;
+    padding: 8px 0;
 
     color: whitesmoke;
-    text-shadow: lightblue 0 0 25px;
+    font-family: 'Nova Mono', monospace;
+    text-shadow: lightblue 0 0 20px;
+    font-weight: bold;
     background-color: black;
     border: 2px solid whitesmoke;
     box-shadow: lightblue 0 0 50px -12px;
 }
 
+button::first-letter {
+    font-size: 1.2em;
+    font-weight: 300;
+    font-family: 'Noto Emoji', monospace;
+}
