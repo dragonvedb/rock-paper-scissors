@@ -59,27 +59,22 @@ body {
 }
 
 #choices {
-    margin: 50px auto;
+    margin: 50px 0;
     display: flex;
-    justify-content: space-between;
-    max-width: 500px;
-}
-
+    justify-content: center;
+    gap: 50px
+}\
 button {
-    max-width: 150px;
-    padding: 8px 0;
+    width: 75px;
+    height: 75px;
 
     color: whitesmoke;
-    font-family: 'Nova Mono', monospace;
-    text-shadow: lightblue 0 0 20px;
-    font-weight: bold;
-    background-color: black;
-    border: 2px solid whitesmoke;
-    box-shadow: lightblue 0 0 50px -12px;
-}
-
-button::first-letter {
-    font-size: 1.2em;
-    font-weight: 300;
+    font-size: 1.5em;
     font-family: 'Noto Emoji', monospace;
+    text-shadow: lightblue 0 0 20px;
+    background-color: black;
+
+    border: 2px solid whitesmoke;
+    border-radius: 50%;
+    box-shadow: lightblue 0 0 50px -12px;
 }
