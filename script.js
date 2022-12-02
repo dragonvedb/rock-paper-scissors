@@ -51,6 +51,7 @@ function startGame() {
     roundCounter = 5;
     roundsLeft.textContent = `${roundCounter} rounds remaining`
 
+    document.querySelector('#score-text').textContent = "The current score is"
     playerScore = 0;
     computerScore = 0;
 
@@ -58,6 +59,7 @@ function startGame() {
     printMsg(["The game has begun.", "What shall you choose?"])
 
     document.querySelector('#start').classList.add('hide');
+    document.querySelector('#reset').classList.add('hide');
     document.querySelector('#ROCK').classList.remove('hide');
     document.querySelector('#PAPER').classList.remove('hide');
     document.querySelector('#SCISSORS').classList.remove('hide');
@@ -167,17 +169,24 @@ function adjustSymbols(playerChoice, computerChoice, infoState) {
 
 
 function announceWinner() {
+
+    document.querySelector('#score-text').textContent = "The final score is";
+
+    playerSymbol.textContent = '';
+    computerSymbol.textContent = '';
     
     clearMsg();
     if (playerScore > computerScore) {
-        printMsg([`🎉 You have won the game with a ${playerScore - computerScore}-point lead!`, `The final score is ${playerScore} : ${computerScore}`])
+        printMsg([`🎉 You have won the game with a ${playerScore - computerScore}-point lead!`, "Wish to try again?"])
     } else if (computerScore > playerScore) {
-        printMsg([`💀 Unfortunately, you have lost the game by a ${computerScore - playerScore}-point margin.`, `The final score is ${playerScore} : ${computerScore}`])
+        printMsg([`💀 Unfortunately, you have lost the game by a ${computerScore - playerScore}-point margin.`, "Wish to try again?"])
     } else {
         printMsg([`The game is tied with a ${playerScore} : ${computerScore} score.`, `I guess you'll have play again to settle this!`])
     }
 
-    playerScore = 0;
-    computerScore = 0;
-    roundCounter = 5;
+    document.querySelector('#ROCK').classList.add('hide');
+    document.querySelector('#PAPER').classList.add('hide');
+    document.querySelector('#SCISSORS').classList.add('hide');
+
+    document.querySelector('#reset').classList.remove('hide');
 }
