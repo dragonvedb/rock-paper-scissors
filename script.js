@@ -50,12 +50,17 @@ function getComputerChoice() {
 // TAKE PLAYER'S AND COMP'S CHOICES AND RETURN WIN\LOSE\TIE MESSAGE.
 function playRound(playerChoice) {
 
+    playerSymbol.classList.remove('green-glow', 'red-glow');
+    computerSymbol.classList.remove('green-glow', 'red-glow');
+
     let computerChoice = getComputerChoice();
 
     // generate win and lose messages and increment score counter
     let winMsg = function() {
         playerScore++;
         adjustSymbols(playerChoice, computerChoice);
+        playerSymbol.classList.add('green-glow');
+        computerSymbol.classList.add('red-glow');
         clearMsg();
         return [`👍 You won! ${playerChoice} beats ${computerChoice}.`, "What shall you choose next?"]
     };
@@ -63,6 +68,8 @@ function playRound(playerChoice) {
     let loseMsg = function(){
         computerScore++;
         adjustSymbols(playerChoice, computerChoice);
+        playerSymbol.classList.add('red-glow');
+        computerSymbol.classList.add('green-glow');
         clearMsg();
         return [`👎 You lost. ${computerChoice} beats ${playerChoice}.`, "What shall you choose next?"]
     };

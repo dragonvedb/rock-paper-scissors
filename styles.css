@@ -61,6 +61,7 @@ body {
 
 #symbols span {
     width: 50px;
+    height: 38px;
     text-align: center;
     font-family: 'Noto Emoji', monospace;
 }
@@ -71,6 +72,16 @@ body {
 
 #comp-symbol {
     transform: rotate(-60deg);
+}
+
+#score .green-glow {
+    color: lightgreen;
+    text-shadow: green 0 0 25px;
+}
+
+#score .red-glow {
+    color: tomato;
+    text-shadow: red 0 0 25px;
 }
 
 #prompt {
