@@ -8,6 +8,9 @@ buttons.forEach(button => {
 const promptArea = document.querySelector('#prompt')
 const playerCounter = document.querySelector('#player-counter')
 const computerCounter = document.querySelector('#comp-counter')
+const playerSymbol = document.querySelector('#player-symbol')
+const computerSymbol = document.querySelector('#comp-symbol')
+const infoSymbol = document.querySelector('#info-symbol')
 
 let roundCounter = 5;
 let playerScore = 0;
@@ -52,19 +55,22 @@ function playRound(playerChoice) {
     // generate win and lose messages and increment score counter
     let winMsg = function() {
         playerScore++;
-        clearMsg()
+        adjustSymbols(playerChoice, computerChoice);
+        clearMsg();
         return [`👍 You won! ${playerChoice} beats ${computerChoice}.`, "What shall you choose next?"]
     };
 
     let loseMsg = function(){
         computerScore++;
-        clearMsg()
+        adjustSymbols(playerChoice, computerChoice);
+        clearMsg();
         return [`👎 You lost. ${computerChoice} beats ${playerChoice}.`, "What shall you choose next?"]
     };
 
     // this switch returns and win/lose message or a tie message in case the choices are the same
     switch(playerChoice) {
         case computerChoice:
+            adjustSymbols(playerChoice, computerChoice);
             clearMsg()
             printMsg([`It's a tie! You both played ${computerChoice}.`, "What shall you choose next?"]);
             break;
@@ -88,9 +94,48 @@ function playRound(playerChoice) {
     playerCounter.textContent = playerScore;
     computerCounter.textContent = computerScore;
 
+    
+
     roundCounter--;
     if (roundCounter < 1) announceWinner();
 }
+
+function adjustSymbols(playerChoice, computerChoice, infoState) {
+    switch(playerChoice) {
+        case 'ROCK':
+            playerSymbol.textContent = '✊';
+            break;
+
+        case 'PAPER':
+            playerSymbol.textContent = '✋';
+            break;
+
+        case 'SCISSORS':
+            playerSymbol.textContent = '✌️';
+            break;
+    }
+
+    switch(computerChoice) {
+        case playerChoice:
+            computerSymbol.textContent = playerSymbol.textContent;
+            break
+
+        case 'ROCK':
+            computerSymbol.textContent = '✊';
+            break;
+
+        case 'PAPER':
+            computerSymbol.textContent = '✋';
+            break;
+
+        case 'SCISSORS':
+            computerSymbol.textContent = '✌️';
+            break;
+    }
+
+    return;
+}
+
 
 function announceWinner() {
     
