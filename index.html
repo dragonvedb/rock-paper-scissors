@@ -15,7 +15,7 @@
 
 <body>
 <div id="container">
-    <p id="rounds-left">5 rounds remaining</p>
+    <p id="rounds-left"></p>
 
     <div id="score">
         <p>The current score is</p>
@@ -35,15 +35,17 @@
         <hr>
         <div id="prompt">
             <p>You are about to play a game of Rock-Paper-Scissors against the computer.</p>
-            <p>What shall you choose?</p>
+            <p>The game is going to consist of five rounds.</p>
         </div>
         <hr>
     </div>
     
     <div id="choices">
-        <button class="choice-btn" id="ROCK">🪨</button>
-        <button class="choice-btn" id="PAPER">📃</button>
-        <button class="choice-btn" id="SCISSORS">✂️</button>
+        <button class="choice-btn green-glow" id="start"><span>▷</span></button>
+        <button class="hide" class="choice-btn green-glow" id="reset"><span>🗘</span></button>
+        <button class="hide" class="choice-btn" id="ROCK">🪨</button>
+        <button class="hide" class="choice-btn" id="PAPER">📃</button>
+        <button class="hide" class="choice-btn" id="SCISSORS">✂️</button>
     </div>
 </div>
 

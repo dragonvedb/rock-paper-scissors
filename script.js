@@ -13,9 +13,9 @@ const computerSymbol = document.querySelector('#comp-symbol')
 const infoSymbol = document.querySelector('#info-symbol')
 const promptArea = document.querySelector('#prompt')
 
-let roundCounter = 5;
-let playerScore = 0;
-let computerScore = 0;
+let roundCounter;
+let playerScore;
+let computerScore;
 
 function printMsg(msg) {
     for (const line of msg) {
@@ -47,9 +47,31 @@ function getComputerChoice() {
     return computerChoice;
 }
 
+function startGame() {
+    roundCounter = 5;
+    roundsLeft.textContent = `${roundCounter} rounds remaining`
+
+    playerScore = 0;
+    computerScore = 0;
+
+    clearMsg();
+    printMsg(["The game has begun.", "What shall you choose?"])
+
+    document.querySelector('#start').classList.add('hide');
+    document.querySelector('#ROCK').classList.remove('hide');
+    document.querySelector('#PAPER').classList.remove('hide');
+    document.querySelector('#SCISSORS').classList.remove('hide');
+
+    return;
+}
+
 // THIS IS A SINGLE GAME ROUND.
 // TAKE PLAYER'S AND COMP'S CHOICES AND RETURN WIN\LOSE\TIE MESSAGE.
 function playRound(playerChoice) {
+
+    if (playerChoice === 'start' || playerChoice === 'reset') {
+        return startGame();
+    }
 
     playerSymbol.classList.remove('green-glow', 'red-glow', 'small-fist');
     computerSymbol.classList.remove('green-glow', 'red-glow', 'small-fist');
@@ -105,7 +127,7 @@ function playRound(playerChoice) {
     
 
     roundCounter--;
-    roundsLeft.textContent = `${roundCounter} rounds remaining`
+    roundsLeft.textContent = `${roundCounter} rounds remaining`;
     if (roundCounter < 1) announceWinner();
 }
 
