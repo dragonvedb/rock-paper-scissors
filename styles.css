@@ -23,16 +23,13 @@ body {
 
     display: flex;
     flex-direction: column;
-    /*justify-content:center;
-    align-items: center;*/
-    /* position:relative;
-    top: -0px;*/
+    justify-content:space-evenly;
 
   
     height: 100vh;
     max-width: 900px;
     margin: auto;
-    padding: 80px 30px 0;
+    padding: 0px 30px 0;
 
     font-family: 'Nova Mono', monospace;
     text-shadow: lightblue 0 0 10px;
@@ -40,7 +37,7 @@ body {
 }
 
 #score {
-    margin-bottom: 36px;
+    /*margin-bottom: 36px;*/
     font-size: 32px;
 }
 
@@ -60,14 +57,19 @@ body {
 
 #prompt {
     height: 150px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
 }
 
-#prompt p {
-    margin-bottom: 25px;
+#prompt hr {   
+    background: whitesmoke;
+    border-radius: 50%;
+    box-shadow: 0px 0px 25px 1px lightblue;
 }
 
 #choices {
-    margin: 50px 0;
+   /* margin: 150px 0;*/
     display: flex;
     justify-content: center;
     gap: 50px
