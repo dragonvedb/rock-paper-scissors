@@ -51,8 +51,8 @@ function getComputerChoice() {
 // TAKE PLAYER'S AND COMP'S CHOICES AND RETURN WIN\LOSE\TIE MESSAGE.
 function playRound(playerChoice) {
 
-    playerSymbol.classList.remove('green-glow', 'red-glow');
-    computerSymbol.classList.remove('green-glow', 'red-glow');
+    playerSymbol.classList.remove('green-glow', 'red-glow', 'small-fist');
+    computerSymbol.classList.remove('green-glow', 'red-glow', 'small-fist');
 
     let computerChoice = getComputerChoice();
 
@@ -113,6 +113,7 @@ function adjustSymbols(playerChoice, computerChoice, infoState) {
     switch(playerChoice) {
         case 'ROCK':
             playerSymbol.textContent = '✊';
+            playerSymbol.classList.add('small-fist');
             break;
 
         case 'PAPER':
@@ -125,12 +126,9 @@ function adjustSymbols(playerChoice, computerChoice, infoState) {
     }
 
     switch(computerChoice) {
-        case playerChoice:
-            computerSymbol.textContent = playerSymbol.textContent;
-            break
-
         case 'ROCK':
             computerSymbol.textContent = '✊';
+            computerSymbol.classList.add('small-fist');
             break;
 
         case 'PAPER':

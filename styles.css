@@ -61,7 +61,7 @@ body {
 
 #symbols span {
     width: 50px;
-    height: 38px;
+    height: 40px;
     text-align: center;
     font-family: 'Noto Emoji', monospace;
 }
@@ -82,6 +82,12 @@ body {
 #score .red-glow {
     color: tomato;
     text-shadow: red 0 0 25px;
+}
+
+#score .small-fist {
+    font-size: 0.85em;
+    position: relative;
+    top: 5px;
 }
 
 #prompt {
