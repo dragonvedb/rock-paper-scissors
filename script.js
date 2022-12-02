@@ -5,12 +5,13 @@ buttons.forEach(button => {
     });
 });
 
-const promptArea = document.querySelector('#prompt')
+const roundsLeft = document.querySelector('#rounds-left')
 const playerCounter = document.querySelector('#player-counter')
 const computerCounter = document.querySelector('#comp-counter')
 const playerSymbol = document.querySelector('#player-symbol')
 const computerSymbol = document.querySelector('#comp-symbol')
 const infoSymbol = document.querySelector('#info-symbol')
+const promptArea = document.querySelector('#prompt')
 
 let roundCounter = 5;
 let playerScore = 0;
@@ -104,6 +105,7 @@ function playRound(playerChoice) {
     
 
     roundCounter--;
+    roundsLeft.textContent = `${roundCounter} rounds remaining`
     if (roundCounter < 1) announceWinner();
 }
 
