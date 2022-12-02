@@ -30,13 +30,13 @@ function getComputerChoice() {
     
     switch(computerChoice) {
         case 0:
-            computerChoice = 'Rock';
+            computerChoice = 'ROCK';
             break;
         case 1:
-            computerChoice = 'Paper';
+            computerChoice = 'PAPER';
             break;
         case 2:
-            computerChoice = 'Scissors';
+            computerChoice = 'SCISSORS';
             break;
     }
 
@@ -69,19 +69,19 @@ function playRound(playerChoice) {
             printMsg([`It's a tie! You both played ${computerChoice}.`, "What shall you choose next?"]);
             break;
 
-        case 'Rock':
-             playerChoice = 'Rock';
-             (computerChoice === 'Scissors') ? printMsg(winMsg()) : printMsg(loseMsg());
+        case 'ROCK':
+             playerChoice = 'ROCK';
+             (computerChoice === 'SCISSORS') ? printMsg(winMsg()) : printMsg(loseMsg());
              break;
 
-        case 'Paper':
-            playerChoice = 'Paper';
-            (computerChoice === 'Rock') ? printMsg(winMsg()) : printMsg(loseMsg());
+        case 'PAPER':
+            playerChoice = 'PAPER';
+            (computerChoice === 'ROCK') ? printMsg(winMsg()) : printMsg(loseMsg());
             break;
 
-        case 'Scissors':
-            playerChoice = 'Scissors';
-            (computerChoice === 'Paper') ? printMsg(winMsg()) : printMsg(loseMsg());
+        case 'SCISSORS':
+            playerChoice = 'SCISSORS';
+            (computerChoice === 'PAPER') ? printMsg(winMsg()) : printMsg(loseMsg());
             break;
     }; 
 
