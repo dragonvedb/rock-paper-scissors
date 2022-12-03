@@ -63,7 +63,7 @@ function startGame() {
     playerSymbol.textContent = '';
     computerSymbol.textContent = '';
 
-    infoSymbol.textContent = '⦁';
+    infoSymbol.textContent = '';
     clearMsg();
     printMsg(["The game has begun.", "What shall you choose?"])
 
@@ -94,7 +94,6 @@ function playRound(playerChoice) {
     let winMsg = function() {
         playerScore++;
         adjustSymbols(playerChoice, computerChoice);
-        infoSymbol.textContent = '👍';
         playerSymbol.classList.add('green-glow');
         computerSymbol.classList.add('red-glow');
         infoSymbol.classList.add('green-glow');
@@ -105,7 +104,6 @@ function playRound(playerChoice) {
     let loseMsg = function(){
         computerScore++;
         adjustSymbols(playerChoice, computerChoice);
-        infoSymbol.textContent = '👎';
         playerSymbol.classList.add('red-glow');
         computerSymbol.classList.add('green-glow');
         infoSymbol.classList.add('red-glow');
@@ -117,7 +115,6 @@ function playRound(playerChoice) {
     switch(playerChoice) {
         case computerChoice:
             adjustSymbols(playerChoice, computerChoice);
-            infoSymbol.textContent = '⧑';
             clearMsg()
             printMsg([`It's a tie! You both played ${computerChoice}.`, "What shall you choose next?"]);
             break;
@@ -188,13 +185,13 @@ function announceWinner() {
     clearMsg();
     if (playerScore > computerScore) {
         document.querySelector('#counters').classList.add('green-glow');
-        infoSymbol.textContent = '🎉';
+        infoSymbol.textContent = '⚝';
         infoSymbol.classList.add('green-glow');
         printMsg([`You have won the game with a ${playerScore - computerScore}-point lead!`, "Wish to try again?"])
     } else if (computerScore > playerScore) {
         document.querySelector('#counters').classList.add('red-glow');
-        infoSymbol.textContent = '💀';
-        infoSymbol.classList.add('green-glow');
+        infoSymbol.textContent = '☠';
+        infoSymbol.classList.add('red-glow');
         printMsg([`Unfortunately, you have lost the game by a ${computerScore - playerScore}-point margin.`, "Wish to try again?"])
     } else {
         infoSymbol.textContent = '⧑';
