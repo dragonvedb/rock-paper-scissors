@@ -19,7 +19,7 @@ body {
 #container {
     border-left: 2px dashed whitesmoke;
     border-right: 2px dashed whitesmoke;
-   /* border-radius: 45%;*/
+    /*border-radius: 25%;*/
 
     display: flex;
     flex-direction: column;

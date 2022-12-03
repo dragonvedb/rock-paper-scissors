@@ -96,7 +96,6 @@ function playRound(playerChoice) {
         adjustSymbols(playerChoice, computerChoice);
         playerSymbol.classList.add('green-glow');
         computerSymbol.classList.add('red-glow');
-        infoSymbol.classList.add('green-glow');
         clearMsg();
         return [`You won! ${playerChoice} beats ${computerChoice}.`, "What shall you choose next?"]
     };
@@ -106,7 +105,6 @@ function playRound(playerChoice) {
         adjustSymbols(playerChoice, computerChoice);
         playerSymbol.classList.add('red-glow');
         computerSymbol.classList.add('green-glow');
-        infoSymbol.classList.add('red-glow');
         clearMsg();
         return [`You lost. ${computerChoice} beats ${playerChoice}.`, "What shall you choose next?"]
     };
