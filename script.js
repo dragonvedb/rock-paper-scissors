@@ -77,13 +77,13 @@ function startGame() {
 // TAKE PLAYER'S AND COMP'S CHOICES AND RETURN WIN\LOSE\TIE MESSAGE.
 function playRound(playerChoice) {
 
-    if (playerChoice === 'start' || playerChoice === 'reset') {
-        return startGame();
-    }
-
     playerSymbol.classList.remove('green-glow', 'red-glow', 'small-fist');
     computerSymbol.classList.remove('green-glow', 'red-glow', 'small-fist');
     infoSymbol.classList.remove('green-glow', 'red-glow');
+
+    if (playerChoice === 'start' || playerChoice === 'reset') {
+        return startGame();
+    };
     
     let computerChoice = getComputerChoice();
 
