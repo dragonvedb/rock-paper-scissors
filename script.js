@@ -20,6 +20,7 @@ let computerScore;
 function printMsg(msg) {
     for (const line of msg) {
         const para = document.createElement('p');
+        if (line.length === 2) para.classList.add('info-symbol');
         para.textContent = line;
         promptArea.appendChild(para);
     }
@@ -92,7 +93,7 @@ function playRound(playerChoice) {
         playerSymbol.classList.add('green-glow');
         computerSymbol.classList.add('red-glow');
         clearMsg();
-        return [`👍 You won! ${playerChoice} beats ${computerChoice}.`, "What shall you choose next?"]
+        return [`👍`, `You won! ${playerChoice} beats ${computerChoice}.`, "What shall you choose next?"]
     };
 
     let loseMsg = function(){
@@ -101,7 +102,7 @@ function playRound(playerChoice) {
         playerSymbol.classList.add('red-glow');
         computerSymbol.classList.add('green-glow');
         clearMsg();
-        return [`👎 You lost. ${computerChoice} beats ${playerChoice}.`, "What shall you choose next?"]
+        return [`👎`, `You lost. ${computerChoice} beats ${playerChoice}.`, "What shall you choose next?"]
     };
 
     // this switch returns and win/lose message or a tie message in case the choices are the same
@@ -178,13 +179,13 @@ function announceWinner() {
     clearMsg();
     if (playerScore > computerScore) {
         document.querySelector('#counters').classList.add('green-glow');
-        printMsg([`🎉 You have won the game with a ${playerScore - computerScore}-point lead!`, "Wish to try again?"])
+        printMsg([`🎉`, `You have won the game with a ${playerScore - computerScore}-point lead!`, "Wish to try again?"])
     } else if (computerScore > playerScore) {
         document.querySelector('#counters').classList.add('red-glow');
-        printMsg([`💀 Unfortunately, you have lost the game by a ${computerScore - playerScore}-point margin.`, "Wish to try again?"])
+        printMsg([`💀`, `Unfortunately, you have lost the game by a ${computerScore - playerScore}-point margin.`, "Wish to try again?"])
     } else {
         printMsg([`The game is tied. You are at a stalemate.`, `You will have to play again to settle this!`])
-    }
+    } 
 
     document.querySelector('#ROCK').classList.add('hide');
     document.querySelector('#PAPER').classList.add('hide');

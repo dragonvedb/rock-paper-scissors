@@ -103,6 +103,11 @@ body {
     margin-bottom: 15px;
 }
 
+#prompt p.info-symbol {
+    font-family: 'Noto Emoji', monospace;
+    font-size: 1.2em;
+}
+
 #prompt-window hr {
     background: whitesmoke;
     border-radius: 50%;
