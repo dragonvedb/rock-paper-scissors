@@ -183,7 +183,7 @@ function announceWinner() {
         document.querySelector('#counters').classList.add('red-glow');
         printMsg([`💀 Unfortunately, you have lost the game by a ${computerScore - playerScore}-point margin.`, "Wish to try again?"])
     } else {
-        printMsg([`The game is tied. You are at a stalemate.`, `I guess you'll have play again to settle this!`])
+        printMsg([`The game is tied. You are at a stalemate.`, `You will have to play again to settle this!`])
     }
 
     document.querySelector('#ROCK').classList.add('hide');
