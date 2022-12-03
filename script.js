@@ -10,7 +10,7 @@ const playerCounter = document.querySelector('#player-counter')
 const computerCounter = document.querySelector('#comp-counter')
 const playerSymbol = document.querySelector('#player-symbol')
 const computerSymbol = document.querySelector('#comp-symbol')
-const infoSymbol = document.querySelector('#info-symbol')
+let infoSymbol = document.querySelector('#info-symbol')
 const promptArea = document.querySelector('#prompt')
 
 let roundCounter;
@@ -20,7 +20,6 @@ let computerScore;
 function printMsg(msg) {
     for (const line of msg) {
         const para = document.createElement('p');
-        if (line.length === 2) para.classList.add('info-symbol');
         para.textContent = line;
         promptArea.appendChild(para);
     }
@@ -61,6 +60,7 @@ function startGame() {
     document.querySelector('#counters').classList.remove('green-glow');
     document.querySelector('#counters').classList.remove('red-glow');
 
+    infoSymbol.textContent = '⦁';
     clearMsg();
     printMsg(["The game has begun.", "What shall you choose?"])
 
@@ -83,32 +83,38 @@ function playRound(playerChoice) {
 
     playerSymbol.classList.remove('green-glow', 'red-glow', 'small-fist');
     computerSymbol.classList.remove('green-glow', 'red-glow', 'small-fist');
-
+    infoSymbol.classList.remove('green-glow', 'red-glow');
+    
     let computerChoice = getComputerChoice();
 
     // generate win and lose messages and increment score counter
     let winMsg = function() {
         playerScore++;
         adjustSymbols(playerChoice, computerChoice);
+        infoSymbol.textContent = '👍';
         playerSymbol.classList.add('green-glow');
         computerSymbol.classList.add('red-glow');
+        infoSymbol.classList.add('green-glow');
         clearMsg();
-        return [`👍`, `You won! ${playerChoice} beats ${computerChoice}.`, "What shall you choose next?"]
+        return [`You won! ${playerChoice} beats ${computerChoice}.`, "What shall you choose next?"]
     };
 
     let loseMsg = function(){
         computerScore++;
         adjustSymbols(playerChoice, computerChoice);
+        infoSymbol.textContent = '👎';
         playerSymbol.classList.add('red-glow');
         computerSymbol.classList.add('green-glow');
+        infoSymbol.classList.add('red-glow');
         clearMsg();
-        return [`👎`, `You lost. ${computerChoice} beats ${playerChoice}.`, "What shall you choose next?"]
+        return [`You lost. ${computerChoice} beats ${playerChoice}.`, "What shall you choose next?"]
     };
 
     // this switch returns and win/lose message or a tie message in case the choices are the same
     switch(playerChoice) {
         case computerChoice:
             adjustSymbols(playerChoice, computerChoice);
+            infoSymbol.textContent = '⧑';
             clearMsg()
             printMsg([`It's a tie! You both played ${computerChoice}.`, "What shall you choose next?"]);
             break;
@@ -179,11 +185,16 @@ function announceWinner() {
     clearMsg();
     if (playerScore > computerScore) {
         document.querySelector('#counters').classList.add('green-glow');
-        printMsg([`🎉`, `You have won the game with a ${playerScore - computerScore}-point lead!`, "Wish to try again?"])
+        infoSymbol.textContent = '🎉';
+        infoSymbol.classList.add('green-glow');
+        printMsg([`You have won the game with a ${playerScore - computerScore}-point lead!`, "Wish to try again?"])
     } else if (computerScore > playerScore) {
         document.querySelector('#counters').classList.add('red-glow');
-        printMsg([`💀`, `Unfortunately, you have lost the game by a ${computerScore - playerScore}-point margin.`, "Wish to try again?"])
+        infoSymbol.textContent = '💀';
+        infoSymbol.classList.add('green-glow');
+        printMsg([`Unfortunately, you have lost the game by a ${computerScore - playerScore}-point margin.`, "Wish to try again?"])
     } else {
+        infoSymbol.textContent = '⧑';
         printMsg([`The game is tied. You are at a stalemate.`, `You will have to play again to settle this!`])
     } 
 
