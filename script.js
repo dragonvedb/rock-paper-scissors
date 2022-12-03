@@ -60,6 +60,9 @@ function startGame() {
     document.querySelector('#counters').classList.remove('green-glow');
     document.querySelector('#counters').classList.remove('red-glow');
 
+    playerSymbol.textContent = '';
+    computerSymbol.textContent = '';
+
     infoSymbol.textContent = '⦁';
     clearMsg();
     printMsg(["The game has begun.", "What shall you choose?"])
