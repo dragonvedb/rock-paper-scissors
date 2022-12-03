@@ -54,6 +54,11 @@ function startGame() {
     document.querySelector('#score-text').textContent = "The current score is"
     playerScore = 0;
     computerScore = 0;
+    playerCounter.textContent = playerScore;
+    computerCounter.textContent = computerScore;
+
+    document.querySelector('#counters').classList.remove('green-glow');
+    document.querySelector('#counters').classList.remove('red-glow');
 
     clearMsg();
     printMsg(["The game has begun.", "What shall you choose?"])
@@ -126,8 +131,6 @@ function playRound(playerChoice) {
     playerCounter.textContent = playerScore;
     computerCounter.textContent = computerScore;
 
-    
-
     roundCounter--;
     roundsLeft.textContent = `${roundCounter} rounds remaining`;
     if (roundCounter < 1) announceWinner();
@@ -171,17 +174,16 @@ function adjustSymbols(playerChoice, computerChoice, infoState) {
 function announceWinner() {
 
     document.querySelector('#score-text').textContent = "The final score is";
-
-    playerSymbol.textContent = '';
-    computerSymbol.textContent = '';
     
     clearMsg();
     if (playerScore > computerScore) {
+        document.querySelector('#counters').classList.add('green-glow');
         printMsg([`🎉 You have won the game with a ${playerScore - computerScore}-point lead!`, "Wish to try again?"])
     } else if (computerScore > playerScore) {
+        document.querySelector('#counters').classList.add('red-glow');
         printMsg([`💀 Unfortunately, you have lost the game by a ${computerScore - playerScore}-point margin.`, "Wish to try again?"])
     } else {
-        printMsg([`The game is tied with a ${playerScore} : ${computerScore} score.`, `I guess you'll have play again to settle this!`])
+        printMsg([`The game is tied. You are at a stalemate.`, `I guess you'll have play again to settle this!`])
     }
 
     document.querySelector('#ROCK').classList.add('hide');
