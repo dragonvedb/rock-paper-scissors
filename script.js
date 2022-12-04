@@ -84,7 +84,7 @@ function playRound(playerChoice) {
     computerSymbol.classList.remove('green-glow', 'red-glow', 'small-fist');
     infoSymbol.classList.remove('green-glow', 'red-glow');
 
-    if (playerChoice === 'start' || playerChoice === 'reset') {
+    if (playerChoice === 'start' || playerChoice === 'reset' || playerChoice === '') {
         return startGame();
     };
     
