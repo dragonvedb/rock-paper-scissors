@@ -11,6 +11,8 @@ const computerCounter = document.querySelector('#comp-counter')
 const playerSymbol = document.querySelector('#player-symbol')
 const computerSymbol = document.querySelector('#comp-symbol')
 let infoSymbol = document.querySelector('#info-symbol')
+const promptBox = document.querySelector('#prompt-window')
+promptBox.style.height = `${promptBox.offsetHeight}px`;
 const promptArea = document.querySelector('#prompt')
 
 let roundCounter;

@@ -101,7 +101,7 @@ body {
 
 #prompt-window {
     margin: 100px 0px 50px;
-    height: 264px;
+    /*height: 264px;*/
 
     display: flex;
     flex-direction: column;
@@ -109,7 +109,7 @@ body {
 }
 
 #prompt {
-    /*height: 150px;*/
+
     display: flex;
     flex-direction: column;
     gap: 11px;
@@ -118,7 +118,6 @@ body {
 
 #info-symbol {
     height: 42px;
-   /* margin: 11px 0px;*/
     font-family: 'Noto Emoji', monospace;
     font-size: 1.5em;
 }
