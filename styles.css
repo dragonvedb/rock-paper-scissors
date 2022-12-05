@@ -117,9 +117,9 @@ body {
 }
 
 #info-symbol {
-    height: 42px;
+    height: 50px;
     font-family: 'Noto Emoji', monospace;
-    font-size: 1.5em;
+    font-size: 1.6em;
 }
 
 #prompt-window hr {
@@ -139,6 +139,7 @@ body {
 button {
     width: 85px;
     height: 85px;
+    transition: 0.05s;
 
     color: whitesmoke;
     font-size: 1.5em;
@@ -171,6 +172,30 @@ button.green-glow {
 
     border-color: lightgreen;
     box-shadow: green 0 0 50px -12px;
+}
+
+button:hover {
+    box-shadow: lightblue 0 0 50px -6px;
+}
+
+button:active {
+    box-shadow: lightblue 0 0 50px -0px;
+}
+
+button.green-glow:hover {
+    color: lightgreen;
+    text-shadow: green 0 0 25px;
+
+    border-color: lightgreen;
+    box-shadow: green 0 0 50px -6px;
+}
+
+button.green-glow:active {
+    color: lightgreen;
+    text-shadow: green 0 0 25px;
+
+    border-color: lightgreen;
+    box-shadow: green 0 0 55px -0px;
 }
 
 button.hide {
