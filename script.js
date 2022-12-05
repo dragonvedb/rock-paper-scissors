@@ -185,12 +185,12 @@ function announceWinner() {
         document.querySelector('#counters').classList.add('green-glow');
         infoSymbol.textContent = '⚝';
         infoSymbol.classList.add('green-glow');
-        printMsg([`You have won the game with a ${playerScore - computerScore}-point lead!`, "Wish to try again?"])
+        printMsg([`You have won the game with a ${playerScore - computerScore}-point lead!`, "Wish to play again?"])
     } else if (computerScore > playerScore) {
         document.querySelector('#counters').classList.add('red-glow');
         infoSymbol.textContent = '☠';
         infoSymbol.classList.add('red-glow');
-        printMsg([`Unfortunately, you have lost the game by a ${computerScore - playerScore}-point margin.`, "Wish to try again?"])
+        printMsg([`Unfortunately, you have lost the game by a ${computerScore - playerScore}-point margin.`, "Care to try again?"])
     } else {
         infoSymbol.textContent = '⧑';
         printMsg([`The game is tied. You are at a stalemate.`, `You will have to play again to settle this!`])
