@@ -16,3 +16,9 @@ Where to next?
 
 Here we go again! This time around we're adding the UI elements which is going to be a huge relief, cause the endless alerts are honesly super annoying and also buggy. Don't yet know how I'm going to style the site; I had an idea of theming it around Undertale (Omega Flowey battle?..) but it may be to much hassle to be honest. We'll see.
 God, there's so much to rework...
+
+6th of December:
+
+The site is finished for good (i hope). I've spent too much time on it anyway, obsessing over minutae of layout and trying to make it look good on phones for no reason.
+I am extremely pleased with how it turned out and with the look I stumbled onto; this sort of neon tableu with an aesthetic that I don't know the name of but definetely know exists. Also, it forced me to remember how HTML/CSS work and what you can do with them.
+And it sure taught me a LOT about DOM manipulation. 
